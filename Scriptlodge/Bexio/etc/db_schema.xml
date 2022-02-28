@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Scriptlodge
+ * @package Scriptlodge_Promail
+ * @author Abdul Matin <khasru96@gmail.com >
+ * @copyright Copyright (c) 2018 Scriptlodge, Ltd (http://www.scriptlodge.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bexio_customer" resource="sales" engine="innodb" comment="Bexio customer">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="int" name="customer_id" padding="11" unsigned="false" nullable="false" comment="Magento customer Id"/>
+        <column xsi:type="int" name="bexio_contact_id" padding="11" unsigned="false" nullable="false" comment="Bexio Contact Id"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Customer email"/>
+        <column xsi:type="smallint" name="country_id" nullable="true"  comment="Customer website"/>
+        <column xsi:type="smallint" name="need_sync" nullable="false" default="0" comment="Is need sync to bexio"/>
+        <column xsi:type="text" name="error" nullable="true"  comment="Error response"/>
+
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false"
+                comment="Created Datetime"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true"
+                comment="Updated Datetime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <table name="bexio_product" resource="sales" engine="innodb" comment="bexio product map">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="int" name="product_id" padding="11" unsigned="false" nullable="false" comment="Magento product Id"/>
+        <column xsi:type="int" name="bexio_article_id" padding="11" unsigned="false" nullable="false" comment="Bexio article Id"/>
+        <column xsi:type="varchar" name="sku" nullable="true" length="255" comment="Product sku"/>
+        <column xsi:type="varchar" name="product_type" nullable="true" length="255" comment="Product type"/>
+
+        <column xsi:type="smallint" name="need_sync" nullable="false" default="0" comment="Is need sync to bexio"/>
+        <column xsi:type="text" name="error" nullable="true"  comment="Error response"/>
+
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false"
+                comment="Created Datetime"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true"
+                comment="Updated Datetime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <table name="bexio_order" resource="sales" engine="innodb" comment="bexio order map">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="int" name="order_id" padding="11" unsigned="false" nullable="false" comment="Magento order Id"/>
+        <column xsi:type="int" name="bexio_order_id" padding="11" unsigned="false" nullable="false" comment="Bexio order Id"/>
+        <column xsi:type="varchar" name="order_increment_id" nullable="true" length="255" comment="Incremented id"/>
+        <column xsi:type="text" name="order_positions" nullable="true" comment="positions order items"/>
+        <column xsi:type="text" name="bexio_invoice" nullable="true"  comment="bexio_invoice_Ids"/>
+        <column xsi:type="text" name="bexio_shipment" nullable="true"   comment="bexio_shipment_Ids"/>
+        <column xsi:type="text" name="bexio_manual_entry" nullable="true"   comment="bexio_manual_entry"/>
+
+        <column xsi:type="smallint" name="bexio_invoice_send" nullable="false" default="0" comment="bexio_invoice_send"/>
+        <column xsi:type="smallint" name="bexio_shipment_done" nullable="false" default="0" comment="bexio_shipment_done"/>
+
+        <column xsi:type="smallint" name="need_sync" nullable="false" default="0" comment="Is need sync to bexio"/>
+        <column xsi:type="text" name="error" nullable="true"  comment="Error response"/>
+
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false"
+                comment="Created Datetime"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true"
+                comment="Updated Datetime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
