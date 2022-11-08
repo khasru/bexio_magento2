@@ -49,12 +49,12 @@ class Index extends Action
         //custome
       //  $this->syncCustomers->execute();
         //product
-        //$this->syncProducts->execute();
+        $this->syncProducts->execute();
 
         // Order
       //  $this->syncOrders->execute();
     //   $this->syncOrderInvoices->execute();
-     //  $this->syncOrderShipment->execute();
+      //$this->syncOrderShipment->execute();
 
     }
 

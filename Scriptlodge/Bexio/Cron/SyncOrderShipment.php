@@ -56,6 +56,7 @@ class SyncOrderShipment
 
             foreach ($collection->getItems() as $bexioOrder){
                 $orderId = $bexioOrder->getOrderId();
+                if($orderId<='15694') continue;
                 $bexioOrderId = $bexioOrder->getBexioOrderId();
                 if ($orderId == '' || $bexioOrderId == '') {
                     continue;

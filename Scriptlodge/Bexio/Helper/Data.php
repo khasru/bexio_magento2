@@ -49,7 +49,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             "Authorization: Bearer " . $token,
             'Content-Length: ' . $lan
         ];
-        
+
 
 //print_r($headers);
 
@@ -73,7 +73,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
         //$info = curl_getinfo($curl);
         $response = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        /*print_r($result);
+        /*print_r($body);
+        print_r($result);
         print_r($response);
         exit();*/
 
@@ -81,14 +82,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             curl_close($curl);
             return $result;
         } else {
-            $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/bexio.log');
+            /*$writer = new \Zend\Log\Writer\Stream(BP . '/var/log/bexio.log');
             $logger = new \Zend\Log\Logger();
             $logger->addWriter($writer);
             $error = 'Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl);
             $logger->info($url);
             $logger->info($curl);
             $logger->info($error);
-            $logger->info("Request:" . $body . " Respons:" . $result);
+            $logger->info("Request:" . $body . " Respons:" . $result);*/
             curl_close($curl);
             return $result;
         }

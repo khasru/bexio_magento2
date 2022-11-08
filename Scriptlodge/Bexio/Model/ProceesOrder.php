@@ -258,7 +258,9 @@ class ProceesOrder extends \Magento\Framework\Model\AbstractModel
 
         if ($order->getShippingAmount() > 0) {
             $taxpercent = 7.7;
-            $shippingAmount = ($order->getShippingAmount() * 100) / (100 + $taxpercent);
+            //$shippingCharge=$order->getShippingAmount();
+            $shippingCharge=8;
+            $shippingAmount = ($shippingCharge * 100) / (100 + $taxpercent);
             $shippingAmount = number_format($shippingAmount, 2);
         } else {
             $shippingAmount = 0;
