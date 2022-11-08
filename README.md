@@ -1,1 +1,1 @@
-# Bexio + Magento 2.X Integrations
+# Bexio + Magento 2.X Integrations (Custom Module)
